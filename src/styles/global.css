@@ -1,6 +1,18 @@
+@import "./variables.css";
+
+:root {
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Outfit", sans-serif; /* or system-ui if you prefer */
+}
+
 body {
   margin: 0;
-  font-family: "Outfit", sans-serif;
-  background: #ffffff;
-  color: #444444;
+  font-family: var(--font-body);
+  color: var(--color-text);
+}
+
+h1.ant-typography,
+h2.ant-typography,
+h3.ant-typography {
+  font-family: var(--font-heading);
 }

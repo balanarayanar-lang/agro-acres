@@ -1,0 +1,45 @@
+.ourServicesSection {
+  padding: 4rem;
+}
+
+.divider:global(.ant-divider-horizontal) {
+  min-width: 60px;
+  max-width: 60px;
+  border-color: var(--color-secondary);
+  margin: 12px 0;
+}
+
+.ourServicesHeader {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-secondary);
+}
+
+.ourServicesHeader:global(.ant-typography) {
+  margin: 0;
+}
+
+.ourServiceBox {
+  width: 385px;
+  border: 1px solid #e6d8cc;
+  padding: 40px;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.ourServicesContentBox {
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 80px;
+}
+
+.ourServiceImage {
+  width: 48px;
+  height: 48px;
+}
+.ourServiceDescription {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 36px;
+}

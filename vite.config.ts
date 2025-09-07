@@ -5,7 +5,12 @@ export default defineConfig({
   plugins: [react()],
   css: {
     modules: {
-      generateScopedName: "[name]_[local]__[hash:base64:5]",
+      // apply CSS Modules only in /src/components
+      getJSON() {
+        // optional hook, not needed unless you want debug
+      },
+      scopeBehaviour: "local",
+      generateScopedName: "[name]__[local]___[hash:base64:5]",
     },
   },
 });

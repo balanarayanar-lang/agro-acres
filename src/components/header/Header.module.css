@@ -1,0 +1,46 @@
+.header {
+  background: #fff;
+  padding: 1rem 4rem;
+}
+
+.navLink {
+  gap: 10px;
+  padding-right: 16px;
+  padding-left: 16px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.navLink:hover {
+  color: var(--color-primary);
+}
+
+.menuIcon {
+  font-size: 24px;
+  color: var(--color-secondary);
+  cursor: pointer;
+}
+
+.navLinks {
+  display: flex;
+  justify-content: end;
+  gap: 16px;
+  flex: auto;
+}
+
+.contactButton {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.drawerMenu {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-title);
+  border-right: none;
+}

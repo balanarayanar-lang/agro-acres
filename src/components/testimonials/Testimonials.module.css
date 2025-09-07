@@ -1,0 +1,117 @@
+.testimonialsSection {
+  padding: 4rem;
+  display: flex;
+  gap: 80px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
+  position: relative;
+}
+
+.divider:global(.ant-divider-horizontal) {
+  min-width: 60px;
+  max-width: 60px;
+  border-color: var(--color-secondary);
+  margin: 12px 0;
+}
+
+.testimonialsHeader {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-secondary);
+}
+
+.arrowButton {
+  background: transparent;
+  border: 1px solid #ab8059;
+  color: #ab8059;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonialReview {
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 30px;
+}
+
+.testimonialName {
+  font-family: "Playfair Display", serif;
+  color: var(--color-secondary);
+  font-weight: 600;
+  font-size: 28px;
+}
+.testimonialCompany {
+  font-family: "Playfair Display", serif;
+  color: var(--color-secondary);
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.disableArrow {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.root {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 2.5rem auto;
+  padding: 3rem 2rem;
+  box-sizing: border-box;
+  background: white;
+}
+
+.slide {
+  display: none;
+  text-align: center;
+  padding: 0 3rem;
+  box-sizing: border-box;
+}
+
+.slideActive {
+  display: block;
+  animation: fadeIn 400ms ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.company {
+  margin-top: 0.25rem;
+  color: #b88658;
+  font-size: 0.95rem;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #91f09d;
+}
+
+.dot:hover {
+  transform: scale(1.12);
+}
+
+.activeDot {
+  background-color: #45b653;
+  opacity: 1;
+}
+
+.bottomDivider {
+  border-bottom: 1px solid var(--color-secondary-text);
+}

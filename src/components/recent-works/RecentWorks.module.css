@@ -1,0 +1,61 @@
+.recentWorksSection {
+  padding: 4rem;
+  display: flex;
+  gap: 32px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.divider:global(.ant-divider-horizontal) {
+  min-width: 60px;
+  max-width: 60px;
+  border-color: var(--color-secondary);
+  margin: 12px 0;
+}
+
+.recentWorksHeader {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-secondary);
+}
+
+.headerTitle {
+  margin: 0 !important;
+}
+
+.recentWorksChairsImg {
+  width: 592px;
+  height: 453px;
+}
+
+.shanviImg,
+.lawnChairImg {
+  width: 486px;
+  height: 298px;
+}
+
+.viewAllButton {
+  width: 122px;
+  height: 56px;
+  position: absolute;
+  bottom: 100px;
+}
+
+@media (max-width: 768px) {
+  .recentWorksSection {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .recentWorksChairsImg {
+    width: 486px;
+    height: 298px;
+  }
+}
+
+@media (max-width: 920px) {
+  .viewAllButton {
+    bottom: 0;
+  }
+}

@@ -1,0 +1,51 @@
+.footerSection {
+  padding: 4rem;
+  gap: 80px;
+  flex-direction: column;
+}
+
+.footerLogos {
+  gap: 80px;
+  padding: 0 112px 80x 112px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.divider {
+  border-color: var(--color-secondary-text);
+}
+
+.kickStartText {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-size: 48px;
+}
+
+.letsTalkText {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 48px;
+  color: var(--color-secondary) !important;
+}
+
+.addressHeader {
+  font-size: 20px;
+}
+
+.addressFooter {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--color-secondary);
+}
+
+.customLine {
+  height: 0px;
+  width: 32px;
+  border-bottom: 1px solid black;
+}
+
+.footerIcon {
+  color: var(--color-primary);
+}

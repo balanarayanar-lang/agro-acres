@@ -1,0 +1,8 @@
+/* src/styles/variables.css */
+:root {
+  --color-primary: #008d36;
+  --color-secondary: #996830;
+  --color-text: #444444;
+  --color-title: #2c2c2c;
+  --color-secondary-text: #d9d9d6;
+}

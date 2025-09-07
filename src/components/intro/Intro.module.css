@@ -1,0 +1,140 @@
+.introSection {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  gap: 24px;
+  margin: 80px 0;
+}
+
+.introHeader {
+  font-weight: 500;
+  font-size: 72px;
+  line-height: 96px;
+  color: var(--color-title);
+  text-align: center;
+}
+
+.introContent {
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 32px;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.introImage {
+  height: 40rem;
+}
+
+@media (min-width: 768px) {
+  .heading {
+    font-size: 2.5rem; /* ~40px */
+  }
+  .subtext {
+    font-size: 1.125rem; /* ~18px */
+  }
+}
+
+.carousel :global(.slick-dots li) {
+  background: #91f09d !important;
+}
+
+.carousel :global(.slick-dots li::after) {
+  background: #91f09d !important;
+}
+
+.carousel :global(.slick-dots li.slick-active) {
+  background: #45b653 !important;
+}
+
+.carousel :global(.slick-dots li.slick-active::after) {
+  background: #45b653 !important;
+}
+
+.carousel :global(.slick-dots.slick-dots-bottom) {
+  bottom: 25px;
+}
+
+.carouselImage {
+  height: 40rem;
+}
+
+.processSection {
+  background-color: #1f4631;
+  padding: 40px 112px;
+  gap: 32px;
+}
+
+.processTitle {
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--color-secondary-text);
+  font-family: var(--font-heading);
+  white-space: nowrap;
+}
+
+.processSubHeader {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-secondary-text);
+}
+
+.processSubText {
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--color-secondary-text);
+  word-break: normal;
+}
+
+.processContainer {
+  gap: 30px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.processItem {
+  min-width: 130px;
+  max-width: 188px;
+}
+
+.divider {
+  height: 20px;
+  min-width: 30px;
+  max-width: 30px;
+  border-color: white;
+}
+
+.processList :global(.ant-list-item) {
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--color-secondary-text);
+  padding: 0;
+  margin: 0;
+}
+
+/* desktop */
+@media (min-width: 1200px) {
+  .introHeader {
+    font-size: 48px;
+  }
+  .introContent {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .processContainer {
+    flex-direction: column;
+  }
+
+  .processTitle {
+    display: inline-block;
+    width: 40px;
+    transform: translateY(104px) rotate(-90deg);
+    transform-origin: top;
+  }
+}

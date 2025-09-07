@@ -1,0 +1,88 @@
+.aboutUsSection {
+  padding: 4rem;
+}
+
+.divider:global(.ant-divider-horizontal) {
+  min-width: 60px;
+  max-width: 60px;
+  border-color: var(--color-secondary);
+  margin: 12px 0;
+}
+
+.aboutUsHeader {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-secondary);
+}
+
+.aboutUsHeader:global(.ant-typography) {
+  margin: 0;
+}
+
+.contentBox::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.mirrorImage,
+.plantsImage {
+  float: right;
+  margin: 0 1rem 1rem 0;
+  width: 280px;
+  height: 480px;
+}
+
+.plantsImage {
+  margin-left: 40px;
+}
+
+.mirrorImage {
+  margin-top: 80px;
+}
+
+.mobileMirrorImage {
+  margin-top: 40px;
+}
+
+.aboutUsContent {
+  font-weight: 300;
+  line-height: 32px;
+}
+
+.mobileMirrorImage,
+.plantsMirrorImage {
+  width: 159px;
+  height: 329px;
+}
+
+.aboutUsFooter {
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-secondary-text);
+}
+
+.aboutUsFooterItem {
+  align-items: center;
+  gap: 16px;
+  width: 300px;
+}
+.aboutUsNumber {
+  font-weight: 400;
+  font-size: 60px;
+  color: var(--color-secondary);
+}
+.aboutUsDescription {
+  font-size: 14px;
+  color: var(--color-title);
+}
+
+@media (max-width: 768px) {
+  .mirrorImage,
+  .plantsImage {
+    display: none; /* stack images */
+  }
+}
