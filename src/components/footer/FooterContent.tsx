@@ -1,0 +1,59 @@
+import {InstagramOutlined, FacebookOutlined, YoutubeOutlined, PinterestOutlined} from "@ant-design/icons";
+import {Divider, Flex, Typography, Space} from "antd";
+import styles from "./Footer.module.css";
+
+export const FooterContent = () => {
+  return (
+    <>
+      <Divider className={styles.divider} />
+      <Flex
+        justify="space-between"
+        wrap
+        style={{width: "100%"}}
+      >
+        <Flex
+          vertical
+          gap={4}
+          style={{maxWidth: "592px"}}
+        >
+          <Typography.Text className={styles.kickStartText}>Kick-start designing your green space with us</Typography.Text>
+          <Typography.Title className={styles.letsTalkText}>let’s talk</Typography.Title>
+        </Flex>
+        <Flex vertical>
+          <Space direction="vertical">
+            <Typography.Text className={styles.addressHeader}>Raipur, Chhattisgarh</Typography.Text>
+            <Typography.Text className={styles.addressFooter}>Greenland, Vishal Nagar, Raipur C.G 492001</Typography.Text>
+          </Space>
+          <Space direction="vertical">
+            <Typography.Text className={styles.addressHeader}>Email us at</Typography.Text>
+            <Typography.Text className={styles.addressFooter}>connect@agroacres.com</Typography.Text>
+          </Space>
+          <Space direction="vertical">
+            <Typography.Text className={styles.addressHeader}>If you're hurry, quick call for us</Typography.Text>
+            <Typography.Text className={styles.addressFooter}>+91 9340908982</Typography.Text>
+          </Space>
+        </Flex>
+      </Flex>
+      <Divider className={styles.divider} />
+      <Flex
+        justify="space-between"
+        wrap
+        style={{width: "100%"}}
+        gap={16}
+      >
+        <Typography.Text className={styles.copyrightText}>© 2024 Agroacres - Made with love by Lexicon Digital</Typography.Text>
+        <Flex
+          gap={16}
+          align="center"
+        >
+          <Typography.Text className={styles.sitemapText}>CONNECT</Typography.Text>
+          <div className={styles.customLine} />
+          <InstagramOutlined className={styles.footerIcon} />
+          <FacebookOutlined className={styles.footerIcon} />
+          <YoutubeOutlined className={styles.footerIcon} />
+          <PinterestOutlined className={styles.footerIcon} />
+        </Flex>
+      </Flex>
+    </>
+  );
+};

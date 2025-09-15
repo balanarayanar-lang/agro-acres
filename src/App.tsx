@@ -1,22 +1,21 @@
-import {AboutUs} from "./components/about-us/AboutUs";
-import {Footer} from "./components/footer/Footer";
-import Header from "./components/header/Header";
-import {Intro} from "./components/intro/Intro";
-import {OurServices} from "./components/our-services/OurServices";
-import {RecentWorks} from "./components/recent-works/RecentWorks";
-import {Testimonials} from "./components/testimonials/Testimonials";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Gallery from "./components/gallery/Gallery";
+import {LandingPage} from "./components/landingPage/LandingPage";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Intro />
-      <AboutUs />
-      <OurServices />
-      <RecentWorks />
-      <Testimonials />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={<LandingPage />}
+        />
+        <Route
+          path="/gallery"
+          element={<Gallery />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

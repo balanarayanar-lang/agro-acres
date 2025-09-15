@@ -5,11 +5,14 @@ import logo from "./../../assets/logo.png";
 
 import styles from "./Header.module.css";
 import {useGetBreakPoint} from "../../common/hooks/useGetBreakPoint";
+import {Link} from "react-router-dom";
+// @ts-expect-error: 'react-router-hash-link' does not have TypeScript types
+import {HashLink} from "react-router-hash-link";
 
 const items = [
   {key: "about", label: "About Us", href: "#about-us"},
   {key: "services", label: "Services", href: "#our-services"},
-  {key: "gallery", label: "Gallery", href: "#gallery"},
+  {key: "gallery", label: "Gallery", href: "/gallery"},
   {key: "clients", label: "Clients", href: "#testimonials"},
 ];
 
@@ -23,6 +26,7 @@ export default function Header() {
         align="middle"
         justify="space-between"
         gutter={16}
+        style={{flexWrap: "nowrap"}}
       >
         <Col>
           <Row
@@ -47,14 +51,26 @@ export default function Header() {
         {screens.md && (
           <Col className={styles.navLinks}>
             {items.map((item) => {
+              if (item.href.startsWith("/")) {
+                return (
+                  <Link
+                    to={item.href}
+                    key={item.key}
+                    className={styles.navLink}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
               return (
-                <a
-                  href={item.href}
+                <HashLink
+                  smooth
+                  to={`/${item.href}`}
                   key={item.key}
                   className={styles.navLink}
                 >
                   {item.label}
-                </a>
+                </HashLink>
               );
             })}
           </Col>
