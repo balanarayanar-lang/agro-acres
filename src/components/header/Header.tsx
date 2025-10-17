@@ -77,12 +77,13 @@ export default function Header() {
         )}
 
         <Col>
-          <Button
-            type="primary"
-            className={styles.contactButton}
-          >
-            CONTACT US <ArrowRightOutlined />
-          </Button>
+          
+          <Link to="/contact-us">
+  <Button type="primary" className={styles.contactButton}>
+    CONTACT US <ArrowRightOutlined />
+  </Button>
+</Link>
+         
         </Col>
       </Row>
 

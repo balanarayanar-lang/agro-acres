@@ -1,6 +1,7 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Gallery from "./components/gallery/Gallery";
 import {LandingPage} from "./components/landingPage/LandingPage";
+import { ContactUs } from "./components/contact-us/ContactUs";
 
 function App() {
   return (
@@ -13,6 +14,11 @@ function App() {
         <Route
           path="/gallery"
           element={<Gallery />}
+        />
+     
+      <Route
+          path="/contact-us"
+          element={<ContactUs />}
         />
       </Routes>
     </BrowserRouter>
