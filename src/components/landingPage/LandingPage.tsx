@@ -23,7 +23,7 @@ export const LandingPage = () => {
   return (
     <>
       <Header onContactClick={showModal} />
-      <main>
+      <main style={{overflowX : 'hidden'}}>
         <Intro />
         <AboutUs />
         <OurServices />
@@ -37,7 +37,6 @@ export const LandingPage = () => {
         onCancel={handleCancel}
         footer={null}
         width={1400}
-        centered={false}
         closable={true}
         style={{ top: 60 }}
         styles={{
