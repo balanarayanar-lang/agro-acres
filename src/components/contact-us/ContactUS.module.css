@@ -1,8 +1,7 @@
 .contactSection {
-    padding: 4rem;
-    background-color: #fdfcfb;
+    padding: 0;
+    background-color: transparent;
     position: relative;
-    min-height: 100vh;
     box-sizing: border-box;
   }
   
@@ -11,20 +10,20 @@
     top: 40px;
     right: 40px;
     font-size: 24px;
-    color: #333;
+    color: var(--color-secondary);
     cursor: pointer;
     z-index: 10;
     transition: color 0.2s ease;
   }
   
   .closeButton:hover {
-    color: #a1887f;
+    color: #8c5b29;
   }
   
   .divider:global(.ant-divider-horizontal) {
     min-width: 60px;
     max-width: 60px;
-    border-color: #c5a582;
+    border-color: var(--color-secondary);
     margin: 12px 0;
   }
   
@@ -32,7 +31,7 @@
     font-weight: 600;
     font-size: 14px;
     color: #c5a582;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
   }
   
   .mainTitle:global(.ant-typography) {
@@ -41,22 +40,22 @@
     line-height: 1.2;
     color: #333;
     margin-top: 0 !important;
-    margin-bottom: 2rem !important;
+    margin-bottom: 2.5rem !important;
   }
   
   .contentWrapper {
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     gap: 60px;
   }
   
   .imageWrapper {
     flex-shrink: 0;
-    width: 600px;
-    height: 400px;
+    width: 500px;
+    height: 350px;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.08);
@@ -74,16 +73,16 @@
     flex-grow: 1;
     display: flex;
     flex-direction: row;
-    gap: 80px;
-    max-width: 700px;
+    gap: 60px;
+    min-width: 0;
   }
   
   .formContainer {
     flex: 1;
-    min-width: 300px;
+    min-width: 280px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
   }
   
   .formContainer form {
@@ -95,7 +94,7 @@
   .formInput {
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--color-secondary);
     padding: 10px 5px;
     font-size: 16px;
     color: #555;
@@ -104,16 +103,16 @@
   }
   
   .formInput::placeholder {
-    color: #999;
+    color: var(--color-secondary);
   }
   
   .formInput:focus {
     outline: none;
-    border-bottom-color: #333;
+    border-bottom-color: var(--color-secondary);
   }
   
   .submitButton {
-    background-color: #00693e;
+    background-color: var(--color-primary);
     color: #fff;
     border: none;
     padding: 15px 20px;
@@ -122,12 +121,13 @@
     font-size: 14px;
     letter-spacing: 1.5px;
     margin-top: 1rem;
-    align-self: flex-start;
+    align-self: stretch;
     transition: background-color 0.3s ease;
+    border-radius: 8px;
   }
   
   .submitButton:hover {
-    background-color: #005632;
+    background-color: #00722c;
   }
   
   .thankYouContainer {
@@ -149,9 +149,10 @@
   .contactInfo {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
-    flex: 1;
-    min-width: 200px;
+    gap: 2rem;
+    flex-shrink: 0;
+    min-width: 220px;
+    width: 250px;
   }
   
   .infoBlock {
@@ -160,24 +161,24 @@
   }
   
   .infoLocation, .infoLabel {
+    font-family: var(--font-body);
     font-size: 14px;
-    color: #555;
-    margin-bottom: 3px;
-    font-family: 'Poppins', sans-serif;
     font-weight: 400;
+    color: var(--color-title);
+    margin-bottom: 4px;
     white-space: nowrap;
   }
   
   .infoAddress, .infoDetail {
-    font-size: 18px;
-    font-weight: 500;
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 400;
     line-height: 1.4;
-    color: #a1887f;
-    font-family: 'Poppins', sans-serif;
+    color: var(--color-secondary);
   }
   
   .socials {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
   
   .socialDivider:global(.ant-divider-horizontal) {
@@ -191,19 +192,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
     border: 1px solid #ddd;
     border-radius: 50%;
-    color: #555;
+    color: #00693e;
     font-size: 18px;
     transition: all 0.3s ease;
+    flex-shrink: 0;
   }
   
   .socialIcon:hover {
-    background-color: #f0f0f0;
-    border-color: #ccc;
-    color: #000;
+    background-color: #00693e;
+    border-color: #00693e;
+    color: #fff;
+  }
+  
+  @media (max-width: 1400px) {
+    .imageWrapper {
+      width: 400px;
+    }
+    .formAndDetailsWrapper {
+      gap: 40px;
+    }
   }
   
   @media (max-width: 1200px) {
@@ -227,12 +238,12 @@
     .mainTitle:global(.ant-typography) {
       font-size: 54px;
     }
+    .contactInfo {
+      width: 100%;
+    }
   }
   
   @media (max-width: 768px) {
-    .contactSection {
-      padding: 2rem;
-    }
     .mainTitle:global(.ant-typography) {
       font-size: 44px;
       text-align: center;
@@ -248,9 +259,6 @@
   }
   
   @media (max-width: 576px) {
-    .contactSection {
-      padding: 1.5rem;
-    }
     .mainTitle:global(.ant-typography) {
       font-size: 36px;
     }
