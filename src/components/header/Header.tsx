@@ -27,7 +27,7 @@ export default function Header({ onContactClick }: { onContactClick: () => void 
             {!screens.md && (
               <MenuOutlined className={styles.menuIcon} onClick={() => setOpen(true)} />
             )}
-            <img src={logo} alt="Agro Acres" style={{ height: 40, marginLeft: "16px" }} />
+            <img src={logo} alt="Agro Acres" style={{ height: 40 }} />
           </Row>
         </Col>
 
@@ -64,7 +64,18 @@ export default function Header({ onContactClick }: { onContactClick: () => void 
       <Drawer title="Menu" placement="left" onClose={() => setOpen(false)} open={open}>
         <Menu
           mode="inline"
-          items={items}
+          items={items.map(item => ({
+            key: item.key,
+            label: item.href.startsWith("/") ? (
+              <Link to={item.href} className={styles.navLink}>
+                {item.label}
+              </Link>
+            ) : (
+              <HashLink smooth to={`/${item.href}`} className={styles.navLink}>
+                {item.label}
+              </HashLink>
+            ),
+          }))}
           className={styles.drawerMenu}
           onClick={() => setOpen(false)}
         />

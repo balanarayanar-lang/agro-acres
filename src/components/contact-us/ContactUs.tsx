@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState, } from "react";
 import { Divider, Flex, Typography } from "antd";
 import {
   InstagramOutlined,
@@ -8,16 +8,31 @@ import {
 } from "@ant-design/icons";
 import formImage from "../../assets/form.png";
 import styles from "./ContactUs.module.css";
+import {firestore} from "../../config/firebase";
+import { addDoc, collection } from "firebase/firestore";
 
 export const ContactUs = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const ref = collection(firestore, "feedbackData")
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    
+    const form = event.currentTarget;
+    const data = {
+      fullName: form.fullName.value,
+      email: form.email.value,
+      message: form.message.value,
+      phone: form.phone.value
+    };
+    
+    const db = addDoc(ref, data)
+    console.log('Form Data:', data);
+    
     setIsSubmitted(true);
   };
 
-  return (
+  return (  
     <>
       <Flex gap={16} align="center">
         <Divider className={styles.divider} />
