@@ -4,7 +4,7 @@ import {GalleryIntro} from "./GalleryIntro";
 
 const Gallery = () => (
   <>
-    <Header />
+    <Header onContactClick={() => {}} />
     <GalleryIntro />
     <GalleryImagesSection />
   </>

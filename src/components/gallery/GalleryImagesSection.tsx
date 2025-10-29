@@ -65,6 +65,7 @@ export const GalleryImagesSection = () => {
         <Flex className={styles.galleryMenu}>
           {listOfMenuItems.map((menu) => (
             <Typography.Link
+              key={menu.id}
               className={activeMenu === menu.id ? activeClass : styles.menuOption}
               onClick={() => setActiveMenu(menu.id)}
             >
