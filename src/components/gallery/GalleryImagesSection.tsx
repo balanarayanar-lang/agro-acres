@@ -1,70 +1,91 @@
-import {Flex, Typography} from "antd";
-import {useState} from "react";
+import { Flex, Typography } from "antd";
+import { useState, useEffect } from "react";
 import styles from "./Gallery.module.css";
-import garden from "./../../assets/gallery/garden.jpg";
-import lawn1 from "./../../assets/gallery/lawn1.jpg";
-import lawn2 from "./../../assets/gallery/lawn2.jpg";
-import lawn3 from "./../../assets/gallery/lawn3.jpg";
-import nightLawn from "./../../assets/gallery/nightLawn.jpg";
-import path from "./../../assets/gallery/path.jpg";
-import pool from "./../../assets/gallery/pool.jpg";
-import pool2 from "./../../assets/gallery/pool2.jpg";
-import tree from "./../../assets/gallery/tree.jpg";
-import {FooterContent} from "../footer/FooterContent";
+import { FooterContent } from "../footer/FooterContent";
 
-const images = {
-  hotel: [garden, lawn1, path, pool, pool2, tree],
-  farmHouse: [nightLawn, path, pool, pool2, tree],
-  residential: [garden, lawn1, lawn2, lawn3, pool2, tree],
-  greenWall: [garden, lawn1, lawn2, lawn3, nightLawn, path, pool, pool2, tree],
-  pool: [garden, lawn1, path, pool, pool2, tree],
-  governmentProjects: [lawn2, lawn3, nightLawn, path, pool, pool2, tree],
-};
+// Tab constants
+const HORECA = "horeca";
+const FARMHOUSE = "farmhouse";
+const RESIDENTIAL = "residential";
+const GREEN_WALL = "greenWall";
+const GOVERNMENT_PROJECT = "governmentProjects";
 
-const HOTEL = "hotel" as const;
-const FARMHOUSE = "farmHouse" as const;
-const RESIDENTIAL = "residential" as const;
-const GREEN_WALL = "greenWall" as const;
-const POOL = "pool" as const;
-const GOVERNMENT_PROJECT = "governmentProjects" as const;
 const listOfMenuItems = [
-  {
-    id: HOTEL,
-    label: "Hotel",
-  },
-  {
-    id: FARMHOUSE,
-    label: "Farmhouse",
-  },
-  {
-    id: RESIDENTIAL,
-    label: "Residential",
-  },
-  {
-    id: GREEN_WALL,
-    label: "Green wall",
-  },
-  {
-    id: POOL,
-    label: "Swimming pool",
-  },
-  {
-    id: GOVERNMENT_PROJECT,
-    label: "Government projects",
-  },
+  { id: HORECA, label: "HORECA" },
+  { id: FARMHOUSE, label: "Farmhouse" },
+  { id: RESIDENTIAL, label: "Residential" },
+  { id: GREEN_WALL, label: "Green wall" },
+  { id: GOVERNMENT_PROJECT, label: "Government projects" },
 ];
 
-// Define a type for the menu item ids
-type MenuItemsIdsType = (typeof listOfMenuItems)[number]["id"];
 export const GalleryImagesSection = () => {
-  const [activeMenu, setActiveMenu] = useState<MenuItemsIdsType>(HOTEL);
+  const [activeMenu, setActiveMenu] = useState(HORECA);
+  const [images, setImages] = useState({
+    horeca: [],
+    farmhouse: [],
+    residential: [],
+    greenWall: [],
+    governmentProjects: [],
+  });
+  
   const activeClass = `${styles.activeMenu} ${styles.menuOption}`;
+
+  // Load images on mount
+  useEffect(() => {
+    const loadAllImages = async () => {
+      try {
+        // Import all images from each folder
+        const horecaModules = import.meta.glob("../../assets/gallery/HORECA/*.*", { eager: true });
+        const farmhouseModules = import.meta.glob("../../assets/gallery/Farmhouse/*.*", { eager: true });
+        const residentialModules = import.meta.glob("../../assets/gallery/Residential/*.*", { eager: true });
+        const greenWallModules = import.meta.glob("../../assets/gallery/Green wall/*.*", { eager: true });
+        const govModules = import.meta.glob("../../assets/gallery/Government Projects/*.*", { eager: true });
+
+        console.log("HORECA modules:", horecaModules);
+        console.log("Farmhouse modules:", farmhouseModules);
+        console.log("Residential modules:", residentialModules);
+        console.log("Green Wall modules:", greenWallModules);
+        console.log("Gov Projects modules:", govModules);
+
+        // Extract default exports (image URLs)
+        const horecaImages = Object.values(horecaModules).map(mod => mod.default);
+        const farmhouseImages = Object.values(farmhouseModules).map(mod => mod.default);
+        const residentialImages = Object.values(residentialModules).map(mod => mod.default);
+        const greenWallImages = Object.values(greenWallModules).map(mod => mod.default);
+        const govImages = Object.values(govModules).map(mod => mod.default);
+
+        setImages({
+          horeca: horecaImages.filter(Boolean),
+          farmhouse: farmhouseImages.filter(Boolean),
+          residential: residentialImages.filter(Boolean),
+          greenWall: greenWallImages.filter(Boolean),
+          governmentProjects: govImages.filter(Boolean),
+        });
+
+        console.log("Images loaded:", {
+          horeca: horecaImages.length,
+          farmhouse: farmhouseImages.length,
+          residential: residentialImages.length,
+          greenWall: greenWallImages.length,
+          governmentProjects: govImages.length,
+        });
+      } catch (error) {
+        console.error("Error loading images:", error);
+      }
+    };
+
+    loadAllImages();
+  }, []);
+
+  const currentImages = images[activeMenu] || [];
+
   return (
     <article>
       <Flex className={styles.galleryMenuBox}>
         <Flex className={styles.galleryMenu}>
           {listOfMenuItems.map((menu) => (
             <Typography.Link
+              key={menu.id}
               className={activeMenu === menu.id ? activeClass : styles.menuOption}
               onClick={() => setActiveMenu(menu.id)}
             >
@@ -73,19 +94,42 @@ export const GalleryImagesSection = () => {
           ))}
         </Flex>
       </Flex>
-      <Flex className={styles.imageBox}>
-        {images[activeMenu].map((image: string) => (
-          <img
-            key={image}
-            src={image}
-            width={380}
-            height={380}
-            alt="Garden"
-            className={styles.carouselImage}
-          />
-        ))}
-        <FooterContent />
+
+      <Flex className={styles.imageBox} wrap="wrap" gap={16}>
+        {currentImages.length > 0 ? (
+          currentImages.map((image, index) => (
+            <img
+              key={`${activeMenu}-${index}`}
+              src={image}
+              width={380}
+              height={380}
+              alt={`${activeMenu} project ${index + 1}`}
+              className={styles.carouselImage}
+              style={{ objectFit: 'cover' }}
+              onError={(e) => {
+                console.error(`Failed to load image:`, image);
+                e.target.style.display = 'none';
+              }}
+            />
+          ))
+        ) : (
+          <Flex 
+            vertical 
+            align="center" 
+            justify="center" 
+            style={{ width: '100%', minHeight: 400 }}
+          >
+            <Typography.Title level={4}>
+              Loading images for {activeMenu}...
+            </Typography.Title>
+            <Typography.Text type="secondary">
+              If images don't appear, check the console for errors
+            </Typography.Text>
+          </Flex>
+        )}
       </Flex>
+      
+      <FooterContent />
     </article>
   );
 };

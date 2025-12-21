@@ -1,5 +1,5 @@
 import {Carousel, Divider, Flex, List, Typography} from "antd";
-import styles from "./Intro.module.css";
+import styles from "./Intro.module.css"
 import lawnChair from "./../../assets/lawn-chair.jpg";
 import {StepBackwardOutlined} from "@ant-design/icons";
 import {useGetBreakPoint} from "../../common/hooks/useGetBreakPoint";
