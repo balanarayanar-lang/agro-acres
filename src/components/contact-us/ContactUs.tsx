@@ -5,6 +5,7 @@ import {
   WhatsAppOutlined,
   FacebookOutlined,
   PinterestOutlined,
+  YoutubeOutlined,
 } from "@ant-design/icons";
 import formImage from "../../assets/form.png";
 import styles from "./ContactUs.module.css";
@@ -128,21 +129,42 @@ export const ContactUs = () => {
                 CONNECT
               </Typography.Text>
               <Divider className={styles.socialDivider} />
+             
+             
+
               <a
-                href="https://wa.me/919340908982"
+                href="https://www.instagram.com/agroacres04?igsh=dmM2MWI3ZWNpMWp5&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialIcon}
               >
-                <WhatsAppOutlined />
-              </a>
-              <a href="#" className={styles.socialIcon}>
                 <InstagramOutlined />
               </a>
-              <a href="#" className={styles.socialIcon}>
+
+              <a
+                href="https://www.facebook.com/share/1JSrzRdpBN/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialIcon}
+              >
                 <FacebookOutlined />
               </a>
-              <a href="#" className={styles.socialIcon}>
+
+              <a
+                href="https://youtube.com/@agroacres?si=oI9YP6zW4m5jleKt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialIcon}
+              >
+                <YoutubeOutlined />
+              </a>
+
+              <a
+                href="https://pin.it/6ZqMudsIA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.socialIcon}
+              >
                 <PinterestOutlined />
               </a>
             </Flex>
