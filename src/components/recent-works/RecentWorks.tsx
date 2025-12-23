@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Button, Divider, Flex, Typography } from "antd";
 import styles from "./RecentWorks.module.css";
 // Updated imports to match your folder structure
