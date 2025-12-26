@@ -22,15 +22,15 @@ export const RecentWorks = () => {
         </Flex>
 
         {/* Top Row: Museum and Resort */}
-        <Flex gap={40} wrap="wrap" justify="space-between">
+        <Flex gap={40} className={styles.projectsContainer}>
           <Flex vertical gap={16} className={styles.workCard}>
             <img src={museumImg} className={styles.museumImg} alt="State Tribal Museum" />
             <Typography.Title level={3} className={styles.contentTitle}>
               State Tribal Museum
             </Typography.Title>
             <Typography.Text className={styles.description}>
-              From the forests of Chhattisgarh to the walls of history, the story of its tribe. 
-              Celebrating Chhattisgarh's indigenous Wisdom Craft and soul. Proudly inaugurated 
+              From the forests of Chhattisgarh to the walls of history, the story of its tribe.
+              Celebrating Chhattisgarh's indigenous Wisdom Craft and soul. Proudly inaugurated
               by the Prime Minister of India.
             </Typography.Text>
           </Flex>
@@ -38,26 +38,26 @@ export const RecentWorks = () => {
           <Flex vertical gap={16} className={styles.workCard}>
             <img src={resortImg} className={styles.resortImg} alt="Shanvi's Resort" />
             <Typography.Title level={3} className={styles.contentTitle}>
-              Shanvi’s Resort
+              Shanvi's Resort
             </Typography.Title>
             <Typography.Text className={styles.description}>
-              Landscape design, execution, and maintenance across 2 acres of lush greenery — 
-              featuring premium Mexican grass sourced from Kolkata. A seamless blend of 
+              Landscape design, execution, and maintenance across 2 acres of lush greenery —
+              featuring premium Mexican grass sourced from Kolkata. A seamless blend of
               planning, precision, and natural beauty.
             </Typography.Text>
           </Flex>
         </Flex>
 
-        {/* Bottom Row: GPRA (Centered) */}
-        <Flex vertical align="center" style={{ width: "100%" }}>
+        {/* Bottom Row: GPRA (Centered on desktop) */}
+        <Flex vertical align="center" className={styles.gpraContainer}>
           <Flex vertical gap={16} className={styles.workCardCentered}>
             <img src={gpraImg} className={styles.gpraImg} alt="GPRA Accommodation" />
             <Typography.Title level={3} className={styles.contentTitle}>
               GPRA - General Pool Residential accommodation
             </Typography.Title>
             <Typography.Text className={styles.description}>
-              Executed under a Central Government project, over 1 lakh trees and plants were 
-              cultivated to develop a vibrant, eco-conscious landscape for officers' quarters 
+              Executed under a Central Government project, over 1 lakh trees and plants were
+              cultivated to develop a vibrant, eco-conscious landscape for officers' quarters
               and surrounding premises.
             </Typography.Text>
           </Flex>
