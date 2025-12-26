@@ -1,3 +1,5 @@
+import React from "react";
+
 import {Flex, Typography} from "antd";
 import lawnChair from "./../../assets/lawn-chair.jpg";
 import styles from "./Gallery.module.css";
