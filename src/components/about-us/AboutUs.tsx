@@ -1,9 +1,10 @@
-import {Divider, Flex, Typography} from "antd";
+import { Divider, Flex, Typography } from "antd";
 
 import mirrorImage from "./../../assets/mirror.jpg";
 import plants from "./../../assets/plants.jpg";
 import styles from "./AboutUs.module.css";
-import {useGetBreakPoint} from "../../common/hooks/useGetBreakPoint";
+import { useGetBreakPoint } from "../../common/hooks/useGetBreakPoint";
+import { useAnimatedNumber } from "../../common/hooks/useAnimatedNumber";
 
 const aboutUsFooter = [
   {
@@ -19,6 +20,11 @@ const aboutUsFooter = [
     description: "GARDENS SOWED WITH HAPPINESS",
   },
 ];
+
+const AnimatedNumber = ({ value }: { value: string }) => {
+  const animatedValue = useAnimatedNumber(value);
+  return <span className={styles.aboutUsNumber}>{animatedValue}</span>;
+};
 
 export const AboutUs = () => {
   const screens = useGetBreakPoint();
@@ -65,7 +71,7 @@ export const AboutUs = () => {
         <Flex
           justify="center"
           gap={16}
-          style={{marginTop: "1rem"}}
+          style={{ marginTop: "1rem" }}
         >
           <img
             src={plants}
@@ -86,7 +92,7 @@ export const AboutUs = () => {
               className={styles.aboutUsFooterItem}
               key={index}
             >
-              <span className={styles.aboutUsNumber}>{item.number}</span>
+              <AnimatedNumber value={item.number} />
               <span className={styles.aboutUsDescription}>{item.description}</span>
             </Flex>
           );

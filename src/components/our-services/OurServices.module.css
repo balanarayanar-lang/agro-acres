@@ -20,26 +20,166 @@
 }
 
 .ourServiceBox {
-  width: 385px;
-  border: 1px solid #e6d8cc;
-  padding: 40px;
+  width: 450px;
+  border: 1px solid #d4a574;
+  padding: 60px;
   flex-direction: column;
-  gap: 80px;
+  gap: 60px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  min-height: 350px;
+  align-items: flex-start;
+  background-color: #fff;
 }
 
 .ourServicesContentBox {
-  gap: 32px;
+  gap: 40px;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 80px;
 }
 
 .ourServiceImage {
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
+  transition: transform 0.3s ease;
 }
+
+.ourServiceContent {
+  gap: 8px;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-height: 120px;
+  flex: 1;
+}
+
+.ourServiceTitle {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 36px;
+  color: var(--color-title);
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
 .ourServiceDescription {
   font-family: var(--font-heading);
   font-weight: 400;
   font-size: 36px;
+  color: var(--color-text);
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.ourServiceFullContent {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+  padding-right: 0;
+}
+
+/* Desktop hover effects only */
+@media (min-width: 769px) {
+  .ourServiceBox:hover {
+    border-color: var(--color-secondary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    z-index: 10;
+    overflow: visible;
+  }
+
+  .ourServiceBox:hover .ourServiceImage {
+    transform: scale(1.1);
+  }
+
+  .ourServiceBox:hover .ourServiceTitle,
+  .ourServiceBox:hover .ourServiceDescription {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .ourServiceBox:hover .ourServiceFullContent {
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
+    top: 0;
+  }
+
+  .ourServiceBox:hover .ourServiceContent {
+    min-height: auto;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .ourServicesSection {
+    padding: 2rem 1rem;
+  }
+
+  .ourServicesContentBox {
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 40px;
+    width: 100%;
+  }
+
+  .ourServiceBox {
+    width: 100%;
+    padding: 40px 32px;
+    gap: 32px;
+    min-height: 200px;
+    border: 1px solid #d4a574;
+    border-right: 1px solid #d4a574;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .ourServiceImage {
+    width: 56px;
+    height: 56px;
+    align-self: center;
+  }
+
+  .ourServiceContent {
+    gap: 8px;
+    min-height: auto;
+    width: 100%;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .ourServiceTitle {
+    font-size: 28px;
+    margin: 0;
+    text-align: left;
+  }
+
+  .ourServiceDescription {
+    font-size: 28px;
+    margin: 0;
+    text-align: left;
+  }
+
+  .ourServiceFullContent {
+    display: none;
+  }
 }

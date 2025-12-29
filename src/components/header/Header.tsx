@@ -29,7 +29,14 @@ export default function Header({ onContactClick }: { onContactClick: () => void 
             {!screens.md && (
               <MenuOutlined className={styles.menuIcon} onClick={() => setOpen(true)} />
             )}
-            <img src={logo} alt="Agro Acres" style={{ height: 40, marginLeft: "16px" }} />
+            <img 
+              src={logo} 
+              alt="Agro Acres" 
+              style={{ 
+                height: 40, 
+                marginLeft: screens.md ? "16px" : "8px" 
+              }} 
+            />
           </Row>
         </Col>
 

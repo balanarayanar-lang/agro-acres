@@ -1,10 +1,6 @@
 .recentWorksSection {
-  padding: 4rem;
-  display: flex;
-  gap: 32px;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  position: relative;
+  padding: 80px 4rem;
+  background-color: #fff;
 }
 
 .divider:global(.ant-divider-horizontal) {
@@ -15,107 +11,61 @@
 }
 
 .recentWorksHeader {
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 2px;
   font-size: 14px;
   color: var(--color-secondary);
 }
 
 .headerTitle {
-  margin: 0 !important;
-}
-
-.recentWorksChairsImg {
-  width: 592px;
-  height: 453px;
-}
-
-.shanviImg,
-.lawnChairImg {
-  width: 486px;
-  height: 298px;
-}
-
-.viewAllButton {
-  width: 122px;
-  height: 56px;
-  position: absolute;
-  bottom: 100px;
-}
-
-@media (max-width: 768px) {
-  .recentWorksSection {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .recentWorksChairsImg {
-    width: 486px;
-    height: 298px;
-  }
-}
-
-@media (max-width: 920px) {
-  .viewAllButton {
-    bottom: 0;
-  }
-}
-.recentWorksSection {
-  padding: 80px 4rem;
-  background-color: #fff;
-}
-
-.divider:global(.ant-divider-horizontal) {
-  min-width: 60px;
-  max-width: 60px;
-  border-top: 2px solid #000; /* Adjust to your secondary color */
-  margin: 0;
-}
-
-.recentWorksHeader {
-  font-weight: 700;
-  letter-spacing: 2px;
-  font-size: 14px;
-}
-
-.headerTitle {
-  font-family: 'Playfair Display', serif; /* Or your preferred serif font */
+  font-family: var(--font-heading);
   font-size: 48px !important;
   margin: 0 !important;
 }
 
+.projectsContainer {
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .workCard {
   flex: 1;
-  min-width: 350px;
-  max-width: 48%;
+  min-width: 0;
+  max-width: calc(50% - 20px);
 }
 
 .workCardCentered {
   width: 100%;
-  max-width: 600px; /* Makes the bottom image stand out */
+  max-width: 600px;
   text-align: center;
 }
 
 .museumImg, .resortImg, .gpraImg {
   width: 100%;
-  height: 350px;
+  height: auto;
   object-fit: cover;
   border-radius: 4px;
+  display: block;
 }
 
 .contentTitle {
-  font-family: 'Playfair Display', serif;
-  margin: 10px 0 0 0 !important;
-  font-size: 24px !important;
+  font-family: var(--font-heading);
+  margin: 16px 0 8px 0 !important;
+  font-size: 32px !important;
+  font-weight: 400;
+  color: var(--color-title);
 }
 
 .description {
-  color: #666;
-  line-height: 1.6;
-  font-size: 15px;
+  color: var(--color-text);
+  line-height: 1.8;
+  font-size: 18px;
+  font-weight: 300;
 }
 
 .viewAllButton {
-  background-color: #00853e !important; /* Green from the image */
+  background-color: #00853e !important;
   height: 48px;
   padding: 0 32px;
   border-radius: 4px;
@@ -124,11 +74,80 @@
   gap: 15px;
 }
 
+/* Desktop only styles */
+@media (min-width: 769px) {
+  .projectsContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+
+  .workCard {
+    flex: 1;
+    max-width: calc(50% - 20px);
+  }
+
+  .museumImg, .resortImg {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  .gpraContainer {
+    display: flex;
+    width: 100%;
+  }
+
+  .workCardCentered {
+    max-width: 800px;
+    width: 100%;
+  }
+
+  .gpraImg {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+  }
+
+  .contentTitle {
+    font-size: 36px !important;
+  }
+
+  .description {
+    font-size: 20px;
+  }
+}
+
 @media (max-width: 768px) {
+  .recentWorksSection {
+    padding: 40px 1rem;
+  }
+
+  .projectsContainer {
+    flex-direction: column;
+    gap: 32px;
+  }
+
   .workCard {
     max-width: 100%;
+    width: 100%;
   }
+
+  .gpraContainer {
+    display: flex;
+    margin-top: 32px;
+  }
+
   .headerTitle {
     font-size: 32px !important;
+  }
+
+  .museumImg, .resortImg, .gpraImg {
+    height: 250px;
+  }
+
+  .viewAllButton {
+    margin-top: 20px;
   }
 }

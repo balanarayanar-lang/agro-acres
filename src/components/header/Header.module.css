@@ -44,3 +44,31 @@
   color: var(--color-title);
   border-right: none;
 }
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
+
+  .menuIcon {
+    margin-left: 0;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    min-width: 32px;
+    min-height: 32px;
+  }
+
+  .contactButton {
+    font-size: 12px;
+    padding: 4px 8px;
+    height: auto;
+    white-space: nowrap;
+  }
+
+  .contactButton :global(.anticon) {
+    font-size: 12px;
+  }
+}
