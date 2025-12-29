@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import styles from "./Gallery.module.css";
 import { FooterContent } from "../footer/FooterContent";
 
-// Tab constants
+
 const HORECA = "horeca";
 const FARMHOUSE = "farmhouse";
 const RESIDENTIAL = "residential";
@@ -30,11 +30,11 @@ export const GalleryImagesSection = () => {
   
   const activeClass = `${styles.activeMenu} ${styles.menuOption}`;
 
-  // Load images on mount
+ 
   useEffect(() => {
     const loadAllImages = async () => {
       try {
-        // Import all images from each folder
+       
         const horecaModules = import.meta.glob("../../assets/gallery/HORECA/*.*", { eager: true });
         const farmhouseModules = import.meta.glob("../../assets/gallery/Farmhouse/*.*", { eager: true });
         const residentialModules = import.meta.glob("../../assets/gallery/Residential/*.*", { eager: true });
@@ -47,7 +47,7 @@ export const GalleryImagesSection = () => {
         console.log("Green Wall modules:", greenWallModules);
         console.log("Gov Projects modules:", govModules);
 
-        // Extract default exports (image URLs)
+       
         const horecaImages = Object.values(horecaModules).map(mod => mod.default);
         const farmhouseImages = Object.values(farmhouseModules).map(mod => mod.default);
         const residentialImages = Object.values(residentialModules).map(mod => mod.default);

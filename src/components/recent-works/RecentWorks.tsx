@@ -2,7 +2,7 @@ import React from "react";
 
 import { Button, Divider, Flex, Typography } from "antd";
 import styles from "./RecentWorks.module.css";
-// Updated imports to match your folder structure
+
 import museumImg from "../../assets/gallery/recent_works/museum.jpg";
 import resortImg from "../../assets/gallery/recent_works/resort.jpg";
 import gpraImg from "../../assets/gallery/recent_works/gpra.jpg";
@@ -12,7 +12,7 @@ export const RecentWorks = () => {
   return (
     <section id="recent-works" className={styles.recentWorksSection}>
       <Flex vertical gap={48} style={{ width: "100%" }}>
-        {/* Header Section */}
+       
         <Flex vertical gap={24} style={{ alignSelf: "flex-start" }}>
           <Flex gap={16} align="center">
             <Divider className={styles.divider} />
@@ -23,7 +23,7 @@ export const RecentWorks = () => {
           </Typography.Title>
         </Flex>
 
-        {/* Top Row: Museum and Resort */}
+       
         <Flex gap={40} wrap="wrap" justify="space-between">
           <Flex vertical gap={16} className={styles.workCard}>
             <img src={museumImg} className={styles.museumImg} alt="State Tribal Museum" />
@@ -50,7 +50,7 @@ export const RecentWorks = () => {
           </Flex>
         </Flex>
 
-        {/* Bottom Row: GPRA (Centered) */}
+        
         <Flex vertical align="center" style={{ width: "100%" }}>
           <Flex vertical gap={16} className={styles.workCardCentered}>
             <img src={gpraImg} className={styles.gpraImg} alt="GPRA Accommodation" />
@@ -65,7 +65,7 @@ export const RecentWorks = () => {
           </Flex>
         </Flex>
 
-        {/* View All Button */}
+      
         <Flex justify="center" style={{ marginTop: '20px' }}>
           <Button type="primary" className={styles.viewAllButton}>
             View all <ArrowRightOutlined />

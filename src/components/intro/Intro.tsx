@@ -27,7 +27,7 @@ export const Intro = () => {
 
   return (
     <div className={styles.mainWrapper}>
-      {/* 1. Header Section */}
+      
       <section id="intro" className={styles.introSection}>
         <Typography.Title className={styles.introHeader}>
           Cultivating <i>ideas</i> for <i>better</i> tomorrow
@@ -37,7 +37,7 @@ export const Intro = () => {
         </Typography.Text>
       </section>
 
-      {/* 2. Floating Circular CTA Button - Overlaps text and carousel */}
+      
       <button className={styles.ctaButton}>
         <div className={styles.arrowIcon}>↗</div>
         <svg viewBox="0 0 120 120" className={styles.ctaButtonSvg}>
@@ -55,7 +55,7 @@ export const Intro = () => {
         </svg>
       </button>
 
-      {/* 3. Carousel Section */}
+      
       <article className={styles.carouselContainer}>
         <Carousel
           ref={carouselRef}
@@ -70,7 +70,7 @@ export const Intro = () => {
         </Carousel>
       </article>
 
-      {/* 4. Process Section */}
+      
       <Flex className={styles.processSection}>
         <Typography.Text className={styles.processTitle}>
           <i>The process</i>
