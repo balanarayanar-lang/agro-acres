@@ -1,31 +1,73 @@
 {
-  "hash": "43e7ea61",
-  "configHash": "79e7bcfe",
-  "lockfileHash": "1c440930",
-  "browserHash": "fc5915e5",
+  "hash": "2843d4b1",
+  "configHash": "5daf7bb0",
+  "lockfileHash": "051412f3",
+  "browserHash": "4e625743",
   "optimized": {
     "react/jsx-dev-runtime": {
       "src": "../../node_modules/react/jsx-dev-runtime.js",
       "file": "react_jsx-dev-runtime.js",
-      "fileHash": "a674aacb",
+      "fileHash": "f993ada2",
       "needsInterop": true
     },
     "react": {
       "src": "../../node_modules/react/index.js",
       "file": "react.js",
-      "fileHash": "56e9b497",
+      "fileHash": "961a3f38",
       "needsInterop": true
     },
     "react-dom/client": {
       "src": "../../node_modules/react-dom/client.js",
       "file": "react-dom_client.js",
-      "fileHash": "16999f6b",
+      "fileHash": "569e82d5",
       "needsInterop": true
+    },
+    "antd": {
+      "src": "../../node_modules/antd/es/index.js",
+      "file": "antd.js",
+      "fileHash": "6e54c5da",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.mjs",
+      "file": "react-router-dom.js",
+      "fileHash": "7fbd5bf9",
+      "needsInterop": false
+    },
+    "@ant-design/icons": {
+      "src": "../../node_modules/@ant-design/icons/es/index.js",
+      "file": "@ant-design_icons.js",
+      "fileHash": "15c33e34",
+      "needsInterop": false
+    },
+    "react-router-hash-link": {
+      "src": "../../node_modules/react-router-hash-link/dist/react-router-hash-link.esm.js",
+      "file": "react-router-hash-link.js",
+      "fileHash": "7aa2af05",
+      "needsInterop": false
+    },
+    "react-router": {
+      "src": "../../node_modules/react-router/dist/development/index.mjs",
+      "file": "react-router.js",
+      "fileHash": "3f7789ed",
+      "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-B2WE2YPZ": {
-      "file": "chunk-B2WE2YPZ.js"
+    "chunk-HJZQO4NG": {
+      "file": "chunk-HJZQO4NG.js"
+    },
+    "chunk-IHBRHTOW": {
+      "file": "chunk-IHBRHTOW.js"
+    },
+    "chunk-DF2DCEVQ": {
+      "file": "chunk-DF2DCEVQ.js"
+    },
+    "chunk-WR7TC3PX": {
+      "file": "chunk-WR7TC3PX.js"
+    },
+    "chunk-2ZZ7U2Y2": {
+      "file": "chunk-2ZZ7U2Y2.js"
     }
   }
 }

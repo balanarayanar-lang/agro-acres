@@ -8,12 +8,13 @@
   margin: 80px 0;
 }
 
-.introHeader {
+.introHeader:global(.ant-typography) {
   font-weight: 500;
   font-size: 72px;
   line-height: 96px;
   color: var(--color-title);
   text-align: center;
+  margin: 0;
 }
 
 .introContent {
@@ -22,6 +23,8 @@
   line-height: 32px;
   color: var(--color-text);
   text-align: center;
+  display: inline-block;
+  max-width: 800px;
 }
 
 .introImage {
@@ -69,26 +72,15 @@
   cursor: pointer;
 }
 
-.ctaButton {
+.ctaButtonWrapper {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: -10px;
+  left: 10%;
   transform: translate(-50%, -50%);
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background-color: var(--color-primary);
-  color: white;
-  border: none;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   z-index: 10;
-  animation: rotate 8s linear infinite;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  border-radius: 50%;
+  background-color: white;
 }
 
 .ctaButton:hover {
@@ -139,9 +131,9 @@
   justify-content: space-between;
 }
 
-.processItem {
-  min-width: 130px;
-  max-width: 188px;
+.processItemIcon {
+  width: 44px;
+  height: 44px;
 }
 
 .divider {
@@ -189,8 +181,10 @@
 
   .processItem {
     align-items: flex-start;
-    max-width: 100%;
+    min-width: 130px;
     width: 100%;
+    max-width: 188px;
+    gap: 12px;
   }
 
   .processTitle {
@@ -241,13 +235,10 @@
 
 /* Fixed CTA Button Position for Overlap */
 .ctaButton {
-  position: absolute;
-  top: 350px; /* Adjust this value to perfectly align with the transition line */
-  left: 80px; /* Align with left margin as seen in reference image */
   width: 110px;
   height: 110px;
   border-radius: 50%;
-  background-color: #1F4631;
+  background-color: #1f4631;
   border: none;
   cursor: pointer;
   display: flex;
@@ -276,7 +267,7 @@
 }
 
 .ctaButtonText {
-  fill: #FFFFFF;
+  fill: #ffffff;
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 2px;
@@ -284,8 +275,12 @@
 }
 
 @keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .processSection {
@@ -308,11 +303,16 @@
 }
 
 @media (max-width: 768px) {
-  .introHeader { font-size: 40px; line-height: 50px; }
-  .ctaButton {
-    top: 480px;
-    left: 20px;
-    width: 90px;
-    height: 90px;
+  .introHeader {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  .ctaButtonWrapper {
+    top: -10px;
+    left: 50%;
+  }
+
+  .processSection {
+    padding: 40px 20px;
   }
 }

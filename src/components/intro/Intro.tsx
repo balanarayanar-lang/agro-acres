@@ -1,20 +1,24 @@
-import { Carousel, Divider, Flex, List, Typography } from "antd";
+import {Carousel, Divider, Flex, List, Typography} from "antd";
 import styles from "./Intro.module.css";
 
 import carouselImg1 from "../../assets/gallery/landingpage/carousal1.jpg";
 import carouselImg2 from "../../assets/gallery/landingpage/carousal2.jpg";
 import carouselImg3 from "../../assets/gallery/landingpage/carousal3.jpg";
-import { StepBackwardOutlined } from "@ant-design/icons";
-import { useGetBreakPoint } from "../../common/hooks/useGetBreakPoint";
-import { useRef } from "react";
-import type { CarouselRef } from "antd/es/carousel";
+import discovery from "../../assets/discovery.png";
+import planning from "../../assets/planning.png";
+import design from "../../assets/design-and-quotation.png";
+import execution from "../../assets/execution.png";
+import retention from "../../assets/retention.png";
+import {useGetBreakPoint} from "../../common/hooks/useGetBreakPoint";
+import {useRef} from "react";
+import type {CarouselRef} from "antd/es/carousel";
 
 const PROCESS_LIST = [
-  { title: "Discovery", description: ["Site visit", "Requirement gathering"] },
-  { title: "Planning", description: ["Plants selection", "Landscaping", "Bio wall & Turfing"] },
-  { title: "Design & quotation", description: ["Design & quotation", "2D/3D drawing Pricing"] },
-  { title: "Execution", description: ["Project completion", "Client Satisfaction"] },
-  { title: "Retention and Maintenance", description: ["Project completion", "Client Satisfaction"] },
+  {title: "Discovery", description: ["Site visit", "Requirement gathering"], imgSrc: discovery},
+  {title: "Planning", description: ["Plants selection", "Landscaping", "Bio wall & Turfing"], imgSrc: planning},
+  {title: "Design & quotation", description: ["Design & quotation", "2D/3D drawing Pricing"], imgSrc: design},
+  {title: "Execution", description: ["Project completion", "Client Satisfaction"], imgSrc: execution},
+  {title: "Retention and Maintenance", description: ["Project completion", "Client Satisfaction"], imgSrc: retention},
 ];
 
 export const Intro = () => {
@@ -27,8 +31,11 @@ export const Intro = () => {
 
   return (
     <div className={styles.mainWrapper}>
-      
-      <section id="intro" className={styles.introSection}>
+      {/* 1. Header Section */}
+      <section
+        id="intro"
+        className={styles.introSection}
+      >
         <Typography.Title className={styles.introHeader}>
           Cultivating <i>ideas</i> for <i>better</i> tomorrow
         </Typography.Title>
@@ -37,26 +44,35 @@ export const Intro = () => {
         </Typography.Text>
       </section>
 
-      
-      <button className={styles.ctaButton}>
-        <div className={styles.arrowIcon}>↗</div>
-        <svg viewBox="0 0 120 120" className={styles.ctaButtonSvg}>
-          <defs>
-            <path
-              id="circlePath"
-              d="M 60, 60 m -45, 0 a 45,45 0 1,1 90,0 a 45,45 0 1,1 -90,0"
-            />
-          </defs>
-          <text className={styles.ctaButtonText}>
-            <textPath href="#circlePath" startOffset="0%">
-              GET IN TOUCH • GET IN TOUCH • 
-            </textPath>
-          </text>
-        </svg>
-      </button>
+      {/* 2. Floating Circular CTA Button - Overlaps text and carousel */}
 
-      
       <article className={styles.carouselContainer}>
+        <div className={styles.ctaButtonWrapper}>
+          <button className={styles.ctaButton}>
+            <div className={styles.arrowIcon}>↗</div>
+            <svg
+              viewBox="0 0 120 120"
+              className={styles.ctaButtonSvg}
+            >
+              <defs>
+                <path
+                  id="circlePath"
+                  d="M 60, 60 m -45, 0 a 45,45 0 1,1 90,0 a 45,45 0 1,1 -90,0"
+                />
+              </defs>
+              <text className={styles.ctaButtonText}>
+                <textPath
+                  href="#circlePath"
+                  startOffset="0%"
+                  style={{fontSize: "12px"}}
+                >
+                  GET IN TOUCH • GET IN TOUCH •
+                </textPath>
+              </text>
+            </svg>
+          </button>
+        </div>
+
         <Carousel
           ref={carouselRef}
           dotPosition="bottom"
@@ -64,13 +80,27 @@ export const Intro = () => {
           autoplay
           autoplaySpeed={4000}
         >
-          <img src={carouselImg1} alt="Garden 1" className={styles.carouselImage} onClick={handleImageClick} />
-          <img src={carouselImg2} alt="Garden 2" className={styles.carouselImage} onClick={handleImageClick} />
-          <img src={carouselImg3} alt="Garden 3" className={styles.carouselImage} onClick={handleImageClick} />
+          <img
+            src={carouselImg1}
+            alt="Garden 1"
+            className={styles.carouselImage}
+            onClick={handleImageClick}
+          />
+          <img
+            src={carouselImg2}
+            alt="Garden 2"
+            className={styles.carouselImage}
+            onClick={handleImageClick}
+          />
+          <img
+            src={carouselImg3}
+            alt="Garden 3"
+            className={styles.carouselImage}
+            onClick={handleImageClick}
+          />
         </Carousel>
       </article>
 
-      
       <Flex className={styles.processSection}>
         <Typography.Text className={styles.processTitle}>
           <i>The process</i>
@@ -78,13 +108,24 @@ export const Intro = () => {
         {!screens.md && <Divider className={styles.divider} />}
         <Flex className={styles.processContainer}>
           {PROCESS_LIST.map((process) => (
-            <Flex className={styles.processItem} key={process.title}>
-              <StepBackwardOutlined />
+            <Flex
+              key={process.title}
+              align="start"
+              gap="12px"
+            >
+              <img
+                className={styles.processItemIcon}
+                src={process.imgSrc}
+                alt="Garden 3"
+              />
               <Flex vertical>
                 <Typography.Text className={styles.processSubHeader}>{process.title}</Typography.Text>
                 <List className={styles.processList}>
                   {process.description.map((desc, index) => (
-                    <List.Item className={styles.processListItem} key={index}>
+                    <List.Item
+                      className={styles.processListItem}
+                      key={index}
+                    >
                       {desc}
                     </List.Item>
                   ))}

@@ -1,73 +1,75 @@
-import { Flex, Typography } from "antd";
-import { useState, useEffect } from "react";
+import {Flex, Typography} from "antd";
+import {useState, useEffect} from "react";
 import styles from "./Gallery.module.css";
-import { FooterContent } from "../footer/FooterContent";
+import {FooterContent} from "../footer/FooterContent";
 
+/* =======================
+   Types
+======================= */
 
-const HORECA = "horeca";
-const FARMHOUSE = "farmhouse";
-const RESIDENTIAL = "residential";
-const GREEN_WALL = "greenWall";
-const GOVERNMENT_PROJECT = "governmentProjects";
+type MenuKey = "horeca" | "farmhouse" | "residential" | "greenWall" | "governmentProjects";
 
-const listOfMenuItems = [
-  { id: HORECA, label: "HORECA" },
-  { id: FARMHOUSE, label: "Farmhouse" },
-  { id: RESIDENTIAL, label: "Residential" },
-  { id: GREEN_WALL, label: "Green wall" },
-  { id: GOVERNMENT_PROJECT, label: "Government projects" },
+type ImageModule = {default: string};
+
+/* =======================
+   Menu constants
+======================= */
+
+const HORECA: MenuKey = "horeca";
+const FARMHOUSE: MenuKey = "farmhouse";
+const RESIDENTIAL: MenuKey = "residential";
+const GREEN_WALL: MenuKey = "greenWall";
+const GOVERNMENT_PROJECT: MenuKey = "governmentProjects";
+
+/* =======================
+   Menu items
+======================= */
+
+const listOfMenuItems: {id: MenuKey; label: string}[] = [
+  {id: HORECA, label: "HORECA"},
+  {id: FARMHOUSE, label: "Farmhouse"},
+  {id: RESIDENTIAL, label: "Residential"},
+  {id: GREEN_WALL, label: "Green wall"},
+  {id: GOVERNMENT_PROJECT, label: "Government projects"},
 ];
 
+/* =======================
+   Component
+======================= */
+
 export const GalleryImagesSection = () => {
-  const [activeMenu, setActiveMenu] = useState(HORECA);
-  const [images, setImages] = useState({
+  const [activeMenu, setActiveMenu] = useState<MenuKey>(HORECA);
+
+  const [images, setImages] = useState<Record<MenuKey, string[]>>({
     horeca: [],
     farmhouse: [],
     residential: [],
     greenWall: [],
     governmentProjects: [],
   });
-  
+
   const activeClass = `${styles.activeMenu} ${styles.menuOption}`;
 
- 
   useEffect(() => {
     const loadAllImages = async () => {
       try {
-       
-        const horecaModules = import.meta.glob("../../assets/gallery/HORECA/*.*", { eager: true });
-        const farmhouseModules = import.meta.glob("../../assets/gallery/Farmhouse/*.*", { eager: true });
-        const residentialModules = import.meta.glob("../../assets/gallery/Residential/*.*", { eager: true });
-        const greenWallModules = import.meta.glob("../../assets/gallery/Green wall/*.*", { eager: true });
-        const govModules = import.meta.glob("../../assets/gallery/Government Projects/*.*", { eager: true });
+        const horecaModules = import.meta.glob("../../assets/gallery/HORECA/*.*", {eager: true});
+        const farmhouseModules = import.meta.glob("../../assets/gallery/Farmhouse/*.*", {eager: true});
+        const residentialModules = import.meta.glob("../../assets/gallery/Residential/*.*", {eager: true});
+        const greenWallModules = import.meta.glob("../../assets/gallery/Green wall/*.*", {eager: true});
+        const govModules = import.meta.glob("../../assets/gallery/Government Projects/*.*", {eager: true});
 
-        console.log("HORECA modules:", horecaModules);
-        console.log("Farmhouse modules:", farmhouseModules);
-        console.log("Residential modules:", residentialModules);
-        console.log("Green Wall modules:", greenWallModules);
-        console.log("Gov Projects modules:", govModules);
-
-       
-        const horecaImages = Object.values(horecaModules).map(mod => mod.default);
-        const farmhouseImages = Object.values(farmhouseModules).map(mod => mod.default);
-        const residentialImages = Object.values(residentialModules).map(mod => mod.default);
-        const greenWallImages = Object.values(greenWallModules).map(mod => mod.default);
-        const govImages = Object.values(govModules).map(mod => mod.default);
+        const extractImages = (modules: Record<string, unknown>) =>
+          Object.values(modules)
+            .map((m) => (m as ImageModule).default)
+            .filter(Boolean);
 
         setImages({
-          horeca: horecaImages.filter(Boolean),
-          farmhouse: farmhouseImages.filter(Boolean),
-          residential: residentialImages.filter(Boolean),
-          greenWall: greenWallImages.filter(Boolean),
-          governmentProjects: govImages.filter(Boolean),
-        });
-
-        console.log("Images loaded:", {
-          horeca: horecaImages.length,
-          farmhouse: farmhouseImages.length,
-          residential: residentialImages.length,
-          greenWall: greenWallImages.length,
-          governmentProjects: govImages.length,
+          horeca: extractImages(horecaModules),
+          farmhouse: extractImages(farmhouseModules),
+          residential: extractImages(residentialModules),
+          greenWall: extractImages(greenWallModules),
+          governmentProjects: extractImages(govModules),
         });
       } catch (error) {
         console.error("Error loading images:", error);
@@ -77,7 +79,7 @@ export const GalleryImagesSection = () => {
     loadAllImages();
   }, []);
 
-  const currentImages = images[activeMenu] || [];
+  const currentImages = images[activeMenu];
 
   return (
     <article>
@@ -95,7 +97,11 @@ export const GalleryImagesSection = () => {
         </Flex>
       </Flex>
 
-      <Flex className={styles.imageBox} wrap="wrap" gap={16}>
+      <Flex
+        className={styles.imageBox}
+        wrap="wrap"
+        gap={16}
+      >
         {currentImages.length > 0 ? (
           currentImages.map((image, index) => (
             <img
@@ -105,30 +111,26 @@ export const GalleryImagesSection = () => {
               height={380}
               alt={`${activeMenu} project ${index + 1}`}
               className={styles.carouselImage}
-              style={{ objectFit: 'cover' }}
+              style={{objectFit: "cover"}}
               onError={(e) => {
-                console.error(`Failed to load image:`, image);
-                e.target.style.display = 'none';
+                const img = e.currentTarget as HTMLImageElement;
+                img.style.display = "none";
               }}
             />
           ))
         ) : (
-          <Flex 
-            vertical 
-            align="center" 
-            justify="center" 
-            style={{ width: '100%', minHeight: 400 }}
+          <Flex
+            vertical
+            align="center"
+            justify="center"
+            style={{width: "100%", minHeight: 400}}
           >
-            <Typography.Title level={4}>
-              Loading images for {activeMenu}...
-            </Typography.Title>
-            <Typography.Text type="secondary">
-              If images don't appear, check the console for errors
-            </Typography.Text>
+            <Typography.Title level={4}>Loading images for {activeMenu}...</Typography.Title>
+            <Typography.Text type="secondary">If images don't appear, check the console for errors</Typography.Text>
           </Flex>
         )}
       </Flex>
-      
+
       <FooterContent />
     </article>
   );

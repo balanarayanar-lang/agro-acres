@@ -17,10 +17,10 @@
   color: var(--color-secondary);
 }
 
-.headerTitle {
+.headerTitle:global(.ant-typography) {
   font-family: var(--font-heading);
-  font-size: 48px !important;
-  margin: 0 !important;
+  font-size: 60px;
+  margin: 0;
 }
 
 .projectsContainer {
@@ -41,7 +41,9 @@
   text-align: center;
 }
 
-.museumImg, .resortImg, .gpraImg {
+.museumImg,
+.resortImg,
+.gpraImg {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -88,7 +90,8 @@
     max-width: calc(50% - 20px);
   }
 
-  .museumImg, .resortImg {
+  .museumImg,
+  .resortImg {
     width: 100%;
     height: 400px;
     object-fit: cover;
@@ -139,11 +142,9 @@
     margin-top: 32px;
   }
 
-  .headerTitle {
-    font-size: 32px !important;
-  }
-
-  .museumImg, .resortImg, .gpraImg {
+  .museumImg,
+  .resortImg,
+  .gpraImg {
     height: 250px;
   }
 

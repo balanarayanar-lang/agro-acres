@@ -1,13 +1,14 @@
-import { useState } from "react";
-import { Modal } from "antd";
-import { AboutUs } from "../about-us/AboutUs";
-import { Footer } from "../footer/Footer";
+import {useEffect, useState} from "react";
+import {Modal} from "antd";
+import {AboutUs} from "../about-us/AboutUs";
+import {Footer} from "../footer/Footer";
 import Header from "../header/Header";
-import { Intro } from "../intro/Intro";
-import { OurServices } from "../our-services/OurServices";
-import { RecentWorks } from "../recent-works/RecentWorks";
-import { Testimonials } from "../testimonials/Testimonials";
-import { ContactUs } from "../contact-us/ContactUs";
+import {Intro} from "../intro/Intro";
+import {OurServices} from "../our-services/OurServices";
+import {RecentWorks} from "../recent-works/RecentWorks";
+import {Testimonials} from "../testimonials/Testimonials";
+import {ContactUs} from "../contact-us/ContactUs";
+import {useLocation} from "react-router";
 
 export const LandingPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,16 +21,29 @@ export const LandingPage = () => {
     setIsModalOpen(false);
   };
 
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.hash) return;
+
+    const id = location.hash.replace("#", "");
+    const el = document.getElementById(id);
+
+    if (el) {
+      el.scrollIntoView({behavior: "smooth"});
+    }
+  }, [location.hash]);
+
   return (
     <>
       <Header onContactClick={showModal} />
-      <main style={{overflowX : 'hidden'}}>
+      <main style={{overflowX: "hidden"}}>
         <Intro />
         <AboutUs />
         <OurServices />
         <RecentWorks />
         <Testimonials />
-        <Footer />
+        <Footer onContactClick={showModal} />
       </main>
 
       <Modal
@@ -38,7 +52,7 @@ export const LandingPage = () => {
         footer={null}
         width={1400}
         closable={true}
-        style={{ top: 60 }}
+        style={{top: 60}}
         styles={{
           body: {
             padding: "3rem 4rem",

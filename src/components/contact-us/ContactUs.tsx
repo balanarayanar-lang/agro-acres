@@ -1,14 +1,8 @@
 import React from "react";
 
-import { useState } from "react";
-import { Divider, Flex, Typography } from "antd";
-import {
-  InstagramOutlined,
-  WhatsAppOutlined,
-  FacebookOutlined,
-  PinterestOutlined,
-  YoutubeOutlined,
-} from "@ant-design/icons";
+import {useState} from "react";
+import {Divider, Flex, Typography} from "antd";
+import {InstagramOutlined, FacebookOutlined, PinterestOutlined, YoutubeOutlined} from "@ant-design/icons";
 import formImage from "../../assets/form.png";
 import styles from "./ContactUs.module.css";
 
@@ -22,16 +16,15 @@ export const ContactUs = () => {
 
   return (
     <>
-      <Flex gap={16} align="center">
+      <Flex
+        gap={16}
+        align="center"
+      >
         <Divider className={styles.divider} />
-        <Typography.Text className={styles.contactHeader}>
-          Contact Us
-        </Typography.Text>
+        <Typography.Text className={styles.contactHeader}>Contact Us</Typography.Text>
       </Flex>
 
-      <Typography.Title className={styles.mainTitle}>
-        Let's discuss Ideas.
-      </Typography.Title>
+      <Typography.Title className={styles.mainTitle}>Let's discuss Ideas.</Typography.Title>
 
       <Flex
         className={styles.contentWrapper}
@@ -47,10 +40,16 @@ export const ContactUs = () => {
           />
         </div>
 
-        <Flex className={styles.formAndDetailsWrapper} gap={80}>
+        <Flex
+          className={styles.formAndDetailsWrapper}
+          gap={80}
+        >
           <div className={styles.formContainer}>
             {!isSubmitted ? (
-              <form onSubmit={handleSubmit} autoComplete="off">
+              <form
+                onSubmit={handleSubmit}
+                autoComplete="off"
+              >
                 <input
                   type="text"
                   name="fullName"
@@ -79,13 +78,19 @@ export const ContactUs = () => {
                   required
                   className={styles.formInput}
                 />
-                <button type="submit" className={styles.submitButton}>
+                <button
+                  type="submit"
+                  className={styles.submitButton}
+                >
                   SUBMIT
                 </button>
               </form>
             ) : (
               <div className={styles.thankYouContainer}>
-                <Typography.Title level={3} className={styles.thankYouMessage}>
+                <Typography.Title
+                  level={3}
+                  className={styles.thankYouMessage}
+                >
                   Thank you for contacting us!
                 </Typography.Title>
               </div>
@@ -94,9 +99,7 @@ export const ContactUs = () => {
 
           <div className={styles.contactInfo}>
             <div className={styles.infoBlock}>
-              <Typography.Text className={styles.infoLocation}>
-                Raipur, Chhattisgarh
-              </Typography.Text>
+              <Typography.Text className={styles.infoLocation}>Raipur, Chhattisgarh</Typography.Text>
               <Typography.Text className={styles.infoAddress}>
                 Greenland, Vishal Nagar, <br />
                 Raipur C.G 492001
@@ -104,21 +107,13 @@ export const ContactUs = () => {
             </div>
 
             <div className={styles.infoBlock}>
-              <Typography.Text className={styles.infoLabel}>
-                Email us at
-              </Typography.Text>
-              <Typography.Text className={styles.infoDetail}>
-                connect@agroacres.com
-              </Typography.Text>
+              <Typography.Text className={styles.infoLabel}>Email us at</Typography.Text>
+              <Typography.Text className={styles.infoDetail}>connect@agroacres.com</Typography.Text>
             </div>
 
             <div className={styles.infoBlock}>
-              <Typography.Text className={styles.infoLabel}>
-                If you're hurry, quick call for us
-              </Typography.Text>
-              <Typography.Text className={styles.infoDetail}>
-                +91 9340908982
-              </Typography.Text>
+              <Typography.Text className={styles.infoLabel}>If you're hurry, quick call for us</Typography.Text>
+              <Typography.Text className={styles.infoDetail}>+91 9340908982</Typography.Text>
             </div>
 
             <Flex
@@ -127,12 +122,8 @@ export const ContactUs = () => {
               className={styles.socials}
               wrap="nowrap"
             >
-              <Typography.Text className={styles.infoLabel}>
-                CONNECT
-              </Typography.Text>
+              <Typography.Text className={styles.infoLabel}>CONNECT</Typography.Text>
               <Divider className={styles.socialDivider} />
-             
-             
 
               <a
                 href="https://www.instagram.com/agroacres04?igsh=dmM2MWI3ZWNpMWp5&utm_source=qr"

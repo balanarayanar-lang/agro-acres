@@ -1,7 +1,8 @@
 import {Button, Divider, Flex, Space, Typography} from "antd";
 import styles from "./Testimonials.module.css";
-import {ArrowLeftOutlined, ArrowRightOutlined, StarOutlined} from "@ant-design/icons";
+import {ArrowLeftOutlined, ArrowRightOutlined} from "@ant-design/icons";
 import {useState} from "react";
+import leaves from "./../../assets/leaves.png";
 
 const reviews = [
   {
@@ -9,21 +10,27 @@ const reviews = [
     company: "Shivam Publicity",
     stars: 5,
     review:
-      "review one - I couldn't be more thrilled with the stunning transformation Agro Acres made to my backyard. Their team was professional, creative, and dedicated to quality throughout the project. I highly recommend Agro Acres for exceptional landscaping services!",
+      "I couldn't be more thrilled with the stunning transformation Agro Acres made to my backyard. Their team was professional, creative, and dedicated to quality throughout the project. I highly recommend Agro Acres for exceptional landscaping services!",
   },
   {
-    name: "Rahul R Nair",
-    company: "Shivam Publicity",
-    stars: 5,
+    name: "Suman Kumar",
+    company: "GKC",
+    stars: 4,
     review:
-      "review two -  transformation Agro Acres made to my backyard. Their team was professional, creative, and dedicated to quality throughout the project. I highly recommend Agro Acres for exceptional landscaping services!",
+      "Agro Acres delivered exceptional landscaping work for our highway stretch and toll booth area. Their team handled both the design and execution with remarkable professionalism, attention to detail, and a strong commitment to timelines. The transformation has significantly enhanced the visual appeal and functionality of the entire site.",
   },
   {
-    name: "Rahul R Nair",
-    company: "Shivam Publicity",
-    stars: 5,
+    name: "Palash Shrivastava",
+    company: "BSCPL",
+    stars: 4,
     review:
-      "review three - I couldn't be more trmation Agro Acres made to my backyard. Their team was professional, creative, and dedicated to quality throughout the project. I highly recommend Agro Acres for exceptional landscaping services!",
+      "They have been an outstanding partner in delivering high-quality landscaping solutions for our project. Their design expertise, disciplined execution, and proactive coordination set them apart from other vendors we have worked with.",
+  },
+  {
+    name: "Harshit Khurana",
+    company: "Shanvi’s Resort",
+    stars: 5,
+    review: "The team consistently demonstrated professionalism, ensured clear communication at every stage, and maintained excellent quality standards throughout the engagement.",
   },
 ];
 
@@ -33,7 +40,10 @@ const GetStarRating = ({stars}: {stars: number}) => {
       {Array(stars)
         .fill(0)
         .map((_, index) => (
-          <StarOutlined key={index} />
+          <img
+            src={leaves}
+            key={index}
+          />
         ))}
     </div>
   );

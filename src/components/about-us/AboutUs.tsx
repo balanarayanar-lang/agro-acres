@@ -1,10 +1,10 @@
-import { Divider, Flex, Typography } from "antd";
+import {Divider, Flex, Typography} from "antd";
 
 import mirrorImage from "./../../assets/mirror.jpg";
 import plants from "./../../assets/plants.jpg";
 import styles from "./AboutUs.module.css";
-import { useGetBreakPoint } from "../../common/hooks/useGetBreakPoint";
-import { useAnimatedNumber } from "../../common/hooks/useAnimatedNumber";
+import {useGetBreakPoint} from "../../common/hooks/useGetBreakPoint";
+import {useAnimatedNumber} from "../../common/hooks/useAnimatedNumber";
 
 const aboutUsFooter = [
   {
@@ -21,7 +21,7 @@ const aboutUsFooter = [
   },
 ];
 
-const AnimatedNumber = ({ value }: { value: string }) => {
+const AnimatedNumber = ({value}: {value: string}) => {
   const animatedValue = useAnimatedNumber(value);
   return <span className={styles.aboutUsNumber}>{animatedValue}</span>;
 };
@@ -48,7 +48,7 @@ export const AboutUs = () => {
           alt="plants"
           className={styles.plantsImage}
         />
-        <Typography.Title>Beautifying Corners with Greenery.</Typography.Title>
+        <Typography.Title style={{fontSize: "60px"}}>Beautifying Corners with Greenery.</Typography.Title>
         <br />
         <Typography.Text className={styles.aboutUsContent}>
           At Agro Acres Farm & Landscape Developers in Raipur, we provide comprehensive landscaping solutions from design to execution. Our experienced team transforms properties
@@ -71,7 +71,7 @@ export const AboutUs = () => {
         <Flex
           justify="center"
           gap={16}
-          style={{ marginTop: "1rem" }}
+          style={{marginTop: "1rem"}}
         >
           <img
             src={plants}

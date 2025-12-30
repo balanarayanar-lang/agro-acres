@@ -9,7 +9,7 @@ export const FooterContent = () => {
       <Flex
         justify="space-between"
         wrap
-        style={{width: "100%"}}
+        style={{padding: "8px 20px 40px"}}
       >
         <Flex
           vertical
@@ -38,8 +38,8 @@ export const FooterContent = () => {
       <Flex
         justify="space-between"
         wrap
-        style={{width: "100%"}}
         gap={16}
+        style={{padding: "8px 20px 40px"}}
       >
         <Typography.Text className={styles.copyrightText}>© 2024 Agroacres - Made with love by Lexicon Digital</Typography.Text>
         <Flex
@@ -48,10 +48,41 @@ export const FooterContent = () => {
         >
           <Typography.Text className={styles.sitemapText}>CONNECT</Typography.Text>
           <div className={styles.customLine} />
-          <InstagramOutlined className={styles.footerIcon} />
-          <FacebookOutlined className={styles.footerIcon} />
-          <YoutubeOutlined className={styles.footerIcon} />
-          <PinterestOutlined className={styles.footerIcon} />
+          <a
+            href="https://www.instagram.com/agroacres04?igsh=dmM2MWI3ZWNpMWp5&utm_source=qr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.footerIcon}
+          >
+            <InstagramOutlined />
+          </a>
+
+          <a
+            href="https://www.facebook.com/share/1JSrzRdpBN/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.footerIcon}
+          >
+            <FacebookOutlined />
+          </a>
+
+          <a
+            href="https://youtube.com/@agroacres?si=oI9YP6zW4m5jleKt"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.footerIcon}
+          >
+            <YoutubeOutlined />
+          </a>
+
+          <a
+            href="https://pin.it/6ZqMudsIA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.footerIcon}
+          >
+            <PinterestOutlined />
+          </a>
         </Flex>
       </Flex>
     </>
