@@ -1,6 +1,6 @@
-import {InstagramOutlined, FacebookOutlined, YoutubeOutlined, PinterestOutlined} from "@ant-design/icons";
 import {Divider, Flex, Typography, Space} from "antd";
 import styles from "./Footer.module.css";
+import {SocialMedia} from "../../common/components/SocialMedia/SocialMedia";
 
 export const FooterContent = () => {
   return (
@@ -42,48 +42,7 @@ export const FooterContent = () => {
         style={{padding: "8px 20px 40px"}}
       >
         <Typography.Text className={styles.copyrightText}>© 2024 Agroacres - Made with love by Lexicon Digital</Typography.Text>
-        <Flex
-          gap={16}
-          align="center"
-        >
-          <Typography.Text className={styles.sitemapText}>CONNECT</Typography.Text>
-          <div className={styles.customLine} />
-          <a
-            href="https://www.instagram.com/agroacres04?igsh=dmM2MWI3ZWNpMWp5&utm_source=qr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.footerIcon}
-          >
-            <InstagramOutlined />
-          </a>
-
-          <a
-            href="https://www.facebook.com/share/1JSrzRdpBN/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.footerIcon}
-          >
-            <FacebookOutlined />
-          </a>
-
-          <a
-            href="https://youtube.com/@agroacres?si=oI9YP6zW4m5jleKt"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.footerIcon}
-          >
-            <YoutubeOutlined />
-          </a>
-
-          <a
-            href="https://pin.it/6ZqMudsIA"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.footerIcon}
-          >
-            <PinterestOutlined />
-          </a>
-        </Flex>
+        <SocialMedia />
       </Flex>
     </>
   );

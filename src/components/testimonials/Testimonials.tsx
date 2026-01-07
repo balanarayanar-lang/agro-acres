@@ -93,6 +93,7 @@ export const Testimonials = () => {
               gap={16}
               justify="space-between"
               align="center"
+              style={{height: "450px"}}
             >
               <GetStarRating stars={reviews[index].stars} />
               <Typography.Text className={styles.testimonialReview}>"{reviews[index].review}"</Typography.Text>

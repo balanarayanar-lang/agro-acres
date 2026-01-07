@@ -10,6 +10,7 @@ import {Testimonials} from "../testimonials/Testimonials";
 import {ContactUs} from "../contact-us/ContactUs";
 import {useLocation} from "react-router";
 
+import styles from "./LandingPage.module.css";
 export const LandingPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -53,9 +54,9 @@ export const LandingPage = () => {
         width={1400}
         closable={true}
         style={{top: 60}}
+        className={styles.contactUsModal}
         styles={{
           body: {
-            padding: "3rem 4rem",
             backgroundColor: "#fdfcfb",
           },
         }}

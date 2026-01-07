@@ -26,18 +26,18 @@
 ================================ */
 
 .ourServiceBox {
-  border: 1px solid #d4a574;
-  padding: 40px;
-  flex-direction: column;
-  gap: 60px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  min-height: 350px;
   align-items: flex-start;
   background-color: #fff;
+  border: 1px solid #d4a574;
+  border-radius: 4px;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 80px;
+  height: 302px;
+  padding: 40px;
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .ourServicesContentBox {
@@ -51,14 +51,6 @@
   width: 64px;
   height: 64px;
   transition: transform 0.3s ease;
-}
-
-.ourServiceContent {
-  gap: 8px;
-  position: relative;
-  width: 100%;
-  min-height: 120px;
-  flex: 1;
 }
 
 .ourServiceTitle {
@@ -92,6 +84,24 @@
   word-wrap: break-word;
 }
 
+.ourServiceFullContent {
+  position: absolute;
+  inset: 0;
+  padding: 40px;
+  font-size: 18px;
+  line-height: 24px;
+  opacity: 0;
+  top: 80px;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+.ourServiceBox.active .ourServiceFullContent {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
 /* ===============================
    Desktop Hover
 ================================ */
@@ -109,8 +119,7 @@
     transform: scale(1.1);
   }
 
-  .ourServiceBox:hover .ourServiceTitle,
-  .ourServiceBox:hover .ourServiceDescription {
+  .ourServiceBox:hover .ourServiceTitle {
     opacity: 0;
     height: 0;
     margin: 0;
@@ -119,8 +128,8 @@
 
   .ourServiceBox:hover .ourServiceFullContent {
     opacity: 1;
+    transform: translateY(0);
     pointer-events: auto;
-    position: relative;
   }
 }
 
@@ -133,18 +142,11 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.ourServiceBox.active .ourServiceTitle,
-.ourServiceBox.active .ourServiceDescription {
+.ourServiceBox.active .ourServiceTitle {
   opacity: 0;
   height: 0;
   margin: 0;
   overflow: hidden;
-}
-
-.ourServiceBox.active .ourServiceFullContent {
-  opacity: 1;
-  pointer-events: auto;
-  position: relative;
 }
 
 /* ===============================
@@ -152,10 +154,6 @@
 ================================ */
 
 @media (max-width: 768px) {
-  .ourServicesSection {
-    padding: 2rem 1rem;
-  }
-
   .ourServicesContentBox {
     flex-direction: column;
     gap: 24px;
@@ -163,24 +161,9 @@
     align-items: center;
   }
 
-  .ourServiceBox {
-    width: 335px;
-    padding: 40px 32px;
-    gap: 32px;
-    min-height: 200px;
-    align-items: center;
-    justify-content: center;
-  }
-
   .ourServiceImage {
     width: 56px;
     height: 56px;
-  }
-
-  .ourServiceContent {
-    width: 100%;
-    align-items: flex-start;
-    text-align: left;
   }
 
   .ourServiceTitle {
@@ -193,20 +176,16 @@
 
   /* IMPORTANT: allow active state to control visibility */
   .ourServiceFullContent {
-    position: relative;
+    font-size: 14px;
     opacity: 0;
     pointer-events: none;
   }
 }
 
-@media (max-width: 1440px) {
-  .ourServiceBox {
-    width: 305px;
-  }
-}
-
-@media (min-width: 1441px) {
-  .ourServiceBox {
-    width: 465px;
+@media (max-width: 480px) {
+  .ourServiceFullContent {
+    font-size: 16px;
+    opacity: 0;
+    pointer-events: none;
   }
 }
